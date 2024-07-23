@@ -1,0 +1,31 @@
+{% extends 'vegefruti.html' %}
+
+{% block body %}
+
+<div class="col-sm-12 col-xl-6">
+  <div class="bg-light rounded h-100 p-4">
+   <h6 class="mb-4"></h6>
+  <form action="{% url 'publicdata' %}" method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+   <br></br><br></br><br></br><br></br>
+   
+
+ <div class="mb-3">
+  <label for="" class="form-label">userName</label>
+  <input type="text"  name="username" class="form-control" id="name"><br></br>    
+ </div> 
+
+<div class="mb-3">
+<label for="" class="form-label">Password</label>
+<input type="password" name="password" class="form-control" id="password"><br></br>
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+{{msg}}
+      </form>
+      
+    </div>
+  
+</div>
+{% endblock %}
+

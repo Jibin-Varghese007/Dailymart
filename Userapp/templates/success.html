@@ -1,0 +1,49 @@
+{% extends 'vegefruti.html' %}
+
+
+
+{% block body %}
+<br></br><br></br><br></br><br></br>
+
+<h1 style="text-align: center; color: rgb(143, 245, 18);">Thank you for purchasing</h1>
+<br></br>
+<center><h2 style="color: black;">Your orders </center>   
+</h2>
+<br></br>
+{% for i in data %} 
+<div>
+<table class="table table-bordered">
+  <thead>
+</thead>
+<tr>
+<th style="color: black;">username:</th>
+<th style="color: black;">phone number:</th>
+<th style="color: black;">Email:</th>
+<th style="color: black;">Product name:</th>
+<th style="color: black;">product quantity:</th>
+</tr>
+<tr>
+  <td>{{i.usercheckout.UserName}}</td>
+  <td>{{i.usercheckout.Phonenumber}}</td>
+  <td>{{i.usercheckout.EmailId}}</td>
+  <td>{{i.checkoutcart.cartproduct.ProductName}}</td>
+  <td>{{i.checkoutcart.quantity}}</td>
+</tr>
+{% endfor %}
+</div>
+</table>
+<center>
+<h5 style="color: rgb(69, 112, 1);">For continuing Shoping</h5>
+<button style="background-color: rgb(167, 240, 50); border-radius: 5px;"><a href="{% url 'checkout' %}" class="cart-btn" style="color:rgb(32, 18, 18)">Go back</button>
+</center>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

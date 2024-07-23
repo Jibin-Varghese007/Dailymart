@@ -1,0 +1,37 @@
+{% extends 'dashmin.html' %}
+
+{% block body %}
+<br></br><br></br><br></br>
+<div class="col-sm-12 ">
+  <div class="bg-light rounded h-100 p-100">
+      <h6 class="mb-4"></h6>
+      <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th scope="col">Username</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone number</th>
+                  <th scope="col">Product name</th>
+                  <th scope="col">Product quantity</th>
+                  <th scope="col">Product total</th>
+                  
+              </tr>
+          </thead>
+          {% for i in data %}
+          <tbody>
+              <tr>
+                  
+                  <td>{{i.usercheckout.UserName}}</td>
+                  <td>{{i.usercheckout.EmailId}}</td> 
+                  <td>{{i.usercheckout.Phonenumber}}</td>
+                  <td>{{i.checkoutcart.cartproduct.ProductName}}</td>
+                  <td>{{i.checkoutcart.quantity}}</td>
+                  <td>{{i.checkoutcart.total}}</td>
+                  
+              </tr>
+             {% endfor %}
+          </tbody>
+      </table>
+  </div>
+</div>
+{% endblock %}

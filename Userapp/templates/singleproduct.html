@@ -1,0 +1,58 @@
+{% extends 'vegefruti.html' %}
+
+{% block body %}
+<br></br><br></br><br></br><br></br>
+<div class="single-product mt-150 mb-150">
+	<div class="container">
+		<div class="row">
+			{% for i in data %}
+			<div class="col-md-5">
+				<div class="single-product-img">
+					<img src="{{i.img.url}}"  alt=""  style="height: 200px; width: 400px"/>
+				</div>
+			</div>
+			<form action="{% url 'cartdata' i.id %}" method="post">
+				{% csrf_token %}
+			<div class="col-md-7">
+				<div class="single-product-content">
+					<h3>{{i.ProductName}}</h3>
+					<p class="single-product-pricing"><span></span> {{i.Price}}</p>
+          <p>{{i.Productcategory}}</p>
+
+					<div class="single-product-form">
+						<form action="index.html">
+							
+							<input type="number" id="quantity" name="quantity" value="1" min="1" max="100">
+					<input type="hidden" id="price" value="{{i.Price}}">
+					<input type="text" id="total" name="total" value="{{i.Price}}">
+				
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> <button type="submit"> Add to Cart</button></a>	
+				</form>
+
+						
+						
+					</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $('#quantity').on('change', function(){
+                var quantity=$('#quantity').val();
+                var price=$('#price').val();
+                var total=parseInt(quantity)*parseInt(price);
+                $('#total').val(total);
+            })
+        })
+    </script>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}

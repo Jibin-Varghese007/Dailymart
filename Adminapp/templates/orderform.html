@@ -1,0 +1,49 @@
+{% extends 'dashmin.html' %}
+
+{% block body %}
+
+<div class="col-sm-12">
+  <div class="bg-light rounded h-100 p-4">
+   <h6 class="mb-4"></h6>
+  <form action="{% url 'ordersdata' %}" method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+   
+  
+ <div class="mb-3">
+  <label for="" class="form-label">Username </label>
+  <input type="text"  name="uname" class="form-control" id="name"><br></br>    
+ </div> 
+
+ <div class="mb-3">
+  <label for="" class="form-label">Email</label>
+  <input type="text"  name="email" class="form-control" id="name"><br></br>    
+ </div> 
+
+<div class="mb-3">
+<label for="" class="form-label">Phone number</label>
+<input type="text" name="number" class="form-control" id="description"><br></br>
+</div>
+
+<div class="mb-3">
+  <label for="" class="form-label">Product name</label>
+  <input type="text" name="pname" class="form-control" id="images"><br></br>
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Product quantity</label>
+    <input type="text" name="quantity" class="form-control" id="images"><br></br>
+    </div>
+
+    <div class="mb-3">
+      <label for="" class="form-label">Product total</label>
+      <input type="text" name="total" class="form-control" id="images"><br></br>
+      </div>
+
+
+<button type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+  </div>
+</div>
+{% endblock %}
+

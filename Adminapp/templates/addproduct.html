@@ -1,0 +1,50 @@
+{% extends 'dashmin.html' %} 
+
+{% block body %}
+
+<div class="col-sm-12">
+  <div class="bg-light rounded h-100 p-100">
+    <h6 class="mb-4"></h6>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Product Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Category</th>
+          <th scope="col">image</th>
+          <th scope="col">edit</th>
+          <th scope="col">delete</th>
+        </tr>
+      </thead>
+      {% for i in data %}
+      <tbody>
+        <tr>
+          <td>{{i.ProductName}}</td>
+          <td>{{i.Price}}</td>
+          <td>{{i.Productcategory}}</td>
+          <td><img src="{{i.img.url}}" style="height: 50px; width: 50px" /></td>
+          <td>
+            <a href="{% url 'editproduct' id=i.id %}"
+              ><button
+                style="background-color: rgb(87, 130, 189); border-radius: 10px"
+              >
+                edit
+              </button></a
+            >
+          </td>
+          <td>
+            <a href="{% url 'deleteproduct' id=i.id %}"
+              ><button
+                style="background-color: rgb(249, 46, 46); border-radius: 10px"
+              >
+                delete
+              </button></a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

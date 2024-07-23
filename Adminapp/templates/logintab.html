@@ -1,0 +1,28 @@
+{% extends 'dashmin.html' %}
+
+{% block body %}
+<br></br><br></br><br></br>
+<div class="col-sm-12">
+  <div class="bg-light rounded h-100 p-100">
+      <h6 class="mb-4">Category Table</h6>
+      <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Password</th>
+              </tr>
+          </thead>
+          {% for i in data %}
+          <tbody>
+              <tr>
+                  
+                  <td>{{i.UserName}}</td>
+                  <td>{{i.Password}}</td>
+                  
+              </tr>
+             {% endfor %}
+          </tbody>
+      </table>
+  </div>
+</div>
+{% endblock %}

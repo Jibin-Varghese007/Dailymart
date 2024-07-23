@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  {% for i in data %}
+  <form action="{% url 'categoryupdate' id=i.id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <form class="card-body">
+      <div class="form-group">
+        <label for="">Category Name</label>
+        <input type="text" name="name" value="{{i.categoryName}}" class="form-control" id="name" placeholder="Enter name">
+      </div><br></br>
+      <div class="form-group">
+        <label for="">Description</label>
+        <input type="text"  name="description"  value="{{i.categoryDescription}}" class="form-control" id="description" placeholder="description">
+      </div><br></br>
+      img: <input type="file" name="img"><br></br>
+      <input type="submit" value="Submit">
+    </form>
+{% endfor %}
