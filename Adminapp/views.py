@@ -6,6 +6,8 @@ from django.core.files.storage import FileSystemStorage
 from django.utils.datastructures import MultiValueDictKeyError
 
 # Create your views here.
+def hello(request):
+   return render("hello.html")
 
 def dashmin(request):
   category = Dailycategory.objects.all().count()

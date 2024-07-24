@@ -21,6 +21,7 @@ urlpatterns = [
     path('logintab',views.logintab, name='logintab'),
     path('registertab',views.registertab, name='registertab'),
     path('ordertable',views.ordertable, name='ordertable'),
+    path('hello',views.hello, name='hello'),
    
 
 
